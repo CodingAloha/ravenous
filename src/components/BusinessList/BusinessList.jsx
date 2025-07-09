@@ -6,8 +6,8 @@ import styles from './BusinessList.module.css';
 const BusinessList = ({ businesses }) => {
     return (
         <div className={styles.businessList}>
-            {businesses.map((business, index) => (
-                <Business key={index} business={business} />
+            {businesses.map((business) => (
+                <Business key={business.id} business={business} />
             ))}
         </div>
     );

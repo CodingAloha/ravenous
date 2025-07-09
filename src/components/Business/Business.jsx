@@ -3,10 +3,18 @@ import styles from './Business.module.css';
 
 
 const Business = ({ business }) => {
+    console.log('Rendering Businesses: ', business);
     
     return (
         <div className={styles.business}>
-            <img className={styles.image} src={business.imageSrc} alt={business.name} />
+            {business.imageSrc && (
+                <img className={styles.image} src={business.imageSrc} alt={business.name} />
+            )}
+            <img 
+                className={styles.image} 
+                src={business.imageSrc} 
+                alt={business.name} 
+            />
             <div className={styles.name}>{business.name}</div>
             <div className={styles.address}>
                 <p>{business.address}</p>

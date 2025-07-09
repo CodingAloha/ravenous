@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './SearchBar.module.css';
+import Yelp from '../../utils/Yelp';
 
 
 const sortByOptions = {
@@ -8,7 +9,7 @@ const sortByOptions = {
     'Most Reviewed': 'review_count'
 };
 
-const SearchBar = () => {
+const SearchBar = ({ onSearch }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [location, setLocation] = useState('');
     const [sortingOption, setSortingOption] = useState(sortByOptions['Best Match']);
@@ -18,9 +19,17 @@ const SearchBar = () => {
     const handleSortChange = (optionValue) => setSortingOption(optionValue);
     const handleSortOptionClick = (value) => () => {handleSortChange(value)};
 
-    const handleSearch = (event) => {
-        event.preventDefault();
-        console.log(`Searching Yelp with ${searchTerm}, ${location}, ${sortingOption}.`)
+    const handleSearch = async (e) => {
+        e.preventDefault();
+
+        if (!searchTerm || !location) return;
+        
+        try {
+            const results = await Yelp.search(searchTerm, location, sortingOption);
+            onSearch(results);
+        } catch (error) {
+            console.error("Search failed: ", error)
+        }
     };
 
     const renderSortByOptions = () => {
@@ -39,6 +48,7 @@ const SearchBar = () => {
     };
 
     return (
+        <form onSubmit={handleSearch}>
         <div className={styles.searchBar}>
             <ul className={styles.sortOptions}>
                 {renderSortByOptions()}
@@ -57,8 +67,15 @@ const SearchBar = () => {
                     onChange={handleLocationChange}     
                 />
             </div>
-            <button type="submit" onClick={handleSearch}>Search</button>
+            <button 
+                type="submit" 
+                onClick={handleSearch}
+                disabled={!searchTerm || !location}
+            >
+                Search
+            </button>
         </div>
+        </form>
     );
 };
 
