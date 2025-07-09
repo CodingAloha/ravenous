@@ -40,3 +40,23 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
+
+.sortOptions li {
+  cursor: pointer;
+  padding: 8px 16px;
+  background-color: #f2f2f2;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.sortOptions li:hover {
+  background-color: #e6e6e6;
+}
+
+.active {
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #ff6f61;
+  border-bottom: 2px solid #ff3c28;
+}
+

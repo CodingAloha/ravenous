@@ -1,26 +1,46 @@
 .business {
-  border: 1px solid #ddd;
-  padding: 16px;
-  margin: 16px;
-  border-radius: 8px;
-  text-align: left;
+  width: 280px;
   background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
-img {
+.image {
   width: 100%;
-  border-radius: 4px;
-  margin-bottom: 12px;
+  height: 200px;
+  object-fit: cover;
 }
 
 .name {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 16px;
 }
 
-.address,
-.reviews {
+.address {
+  margin: 0 16px 8px 16px;
   font-size: 0.9rem;
   color: #555;
+}
+
+.reviews {
+  margin: 0 16px 16px 16px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.category {
+  font-weight: bold;
+  color: #c79a00;
+  margin-right: 4px;
+}
+.ratingLine {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
 }

@@ -6,20 +6,20 @@ const Business = ({ business }) => {
     
     return (
         <div className={styles.business}>
-            <div>
-                <img className={styles.img} src={business.imageSrc} alt={business.name} />
-            </div>
-            <div className={styles.name}>
-                <h2>{business.name}</h2>
-            </div>
+            <img className={styles.image} src={business.imageSrc} alt={business.name} />
+            <div className={styles.name}>{business.name}</div>
             <div className={styles.address}>
                 <p>{business.address}</p>
-                <p>{business.city}, {business.state}, {business.zipCode}</p>
+                <p>{business.city}</p>
+                <p>{business.state}, {business.zipCode}</p>
             </div>
+
             <div className={styles.reviews}>
-                <p>{business.category}</p>
-                <p>{business.rating} stars</p>
-                <p>{business.reviewCount} reviews</p>
+                <div className={styles.category}>{business.category}</div>
+                <div className={styles.ratingLine}>
+                    <span>{business.rating}</span>
+                    <span>{business.reviewCount}</span>
+                </div>
             </div>
         </div>
 
