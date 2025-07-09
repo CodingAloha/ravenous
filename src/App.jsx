@@ -1,36 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import BusinessList from './components/BusinessList/BusinessList';
+import SearchBar from './components/SearchBar/SearchBar';
+import './App.css';
+
+
+const sampleBusinesses = [{
+    imageSrc: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
+    name: 'MarginOtto Pizzeria',
+    address: '1010 Paddington Way',
+    city: 'Flavortown',
+    state: 'NY',
+    zipCode: '10101',
+    category: 'Italian',
+    rating: 4.5,
+    reviewCount: 90
+}];
+
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <SearchBar />
+//       <BusinessList business={sampleBusiness} />
+//     </div>
+//   );
+// }
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <h1>Hello Codecademy! woohoo</h1>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <SearchBar />
+      <BusinessList businesses={sampleBusinesses} />
+    </div>
+  );
 }
 
-export default App
+export default App;
