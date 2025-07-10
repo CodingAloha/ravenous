@@ -36,7 +36,7 @@ const SearchBar = ({ onSearch }) => {
         return Object.keys(sortByOptions).map(option => {
             const value = sortByOptions[option];
             return (
-                <li 
+                <li
                     key={value}
                     className={sortingOption === value ? styles.active : ''}
                     onClick={handleSortOptionClick(value)}
@@ -49,32 +49,34 @@ const SearchBar = ({ onSearch }) => {
 
     return (
         <form onSubmit={handleSearch}>
-        <div className={styles.searchBar}>
-            <ul className={styles.sortOptions}>
-                {renderSortByOptions()}
-            </ul>
-            <div className={styles.inputs}>
-                <input 
-                    type="text" 
-                    placeholder="Search Businesses"
-                    value={searchTerm}
-                    onChange={handleSearchTermChange} 
-                />
-                <input 
-                    type="text" 
-                    placeholder="Where?"
-                    value={location}
-                    onChange={handleLocationChange}     
-                />
+            <div className={styles.searchBarContainer}>
+                <div className={styles.searchBar}>
+                    <ul className={styles.sortOptions}>
+                        {renderSortByOptions()}
+                    </ul>
+                    <div className={styles.inputs}>
+                        <input 
+                            type="text" 
+                            placeholder="Search Businesses"
+                            value={searchTerm}
+                            onChange={handleSearchTermChange} 
+                        />
+                        <input 
+                            type="text" 
+                            placeholder="Where?"
+                            value={location}
+                            onChange={handleLocationChange}     
+                        />
+                    </div>
+                    <button 
+                        type="submit" 
+                        onClick={handleSearch}
+                        disabled={!searchTerm || !location}
+                    >
+                        Search
+                    </button>
+                </div>
             </div>
-            <button 
-                type="submit" 
-                onClick={handleSearch}
-                disabled={!searchTerm || !location}
-            >
-                Search
-            </button>
-        </div>
         </form>
     );
 };

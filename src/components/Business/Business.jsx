@@ -10,11 +10,6 @@ const Business = ({ business }) => {
             {business.imageSrc && (
                 <img className={styles.image} src={business.imageSrc} alt={business.name} />
             )}
-            <img 
-                className={styles.image} 
-                src={business.imageSrc} 
-                alt={business.name} 
-            />
             <div className={styles.name}>{business.name}</div>
             <div className={styles.address}>
                 <p>{business.address}</p>
